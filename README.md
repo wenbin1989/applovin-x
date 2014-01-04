@@ -4,7 +4,7 @@ A C++ wrapper of [Applovin](http://www.applovin.com/index) for [Cocos2d-X](https
 #Environment
 
 * ###Applovin SDK
-	* Android: v5.1.0
+	* Android: v5.2.2
 	* iOS: v2.2.4
 
 * ###cocos2d-x
@@ -27,7 +27,7 @@ All the following files you need in iOS are in `applovin-x/ios` fold.
 1. Add the previous `ApplovinX.h` to your Xcode project
 2. Add `headers/`, `ApplovinX_ios.mm`, `libAppLovinSdk.a` to your Xcode project
 3. Add `#import "ALSdk.h"` to `AppController.mm`, and call `[ALSdk initializeSdk];` in AppController's `applicationDidFinishLaunching` method
-4. Go to your Project Settings. Select "Info", right-click on one of the rows of "Custom iOS Properties" and select "Add Row". 
+4. Go to your Project Settings. Select "Info", right-click on one of the rows of "Custom iOS Properties" and select "Add Row".
 The key of the new row should be AppLovinSdkKey and the value shouble be YOUR\_SDK\_KEY
 5. Ensure you're linking with the following libraries:
 	* AdSupport.framework
@@ -58,7 +58,7 @@ All the following files you need in Android are in `applovin-x/android` fold.
 
 	Add Sdk Key. This needs to go inside the "application" tag:
 
-		<meta-data android:name="applovin.sdk.key" 
+		<meta-data android:name="applovin.sdk.key"
 			android:value="YOUR_SDK_KEY"  />
 
 	Add permission:
@@ -68,7 +68,7 @@ All the following files you need in Android are in `applovin-x/android` fold.
 		<uses-permission android:name="android.permission.READ_PHONE_STATE"/>
 
 	Add activity:
-	
+
 		<activity android:name="com.applovin.adview.AppLovinInterstitialActivity" />
 
 ##Email: <wenbin1989@gmail.com>
