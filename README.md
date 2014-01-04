@@ -5,7 +5,7 @@ A C++ wrapper of [Applovin](http://www.applovin.com/index) for [Cocos2d-X](https
 
 * ###Applovin SDK
 	* Android: v5.1.0
-	* iOS: v2.0.95
+	* iOS: v2.2.4
 
 * ###cocos2d-x
 	* cocos2d-x-2.0.3 or higher
@@ -30,10 +30,14 @@ All the following files you need in iOS are in `applovin-x/ios` fold.
 4. Go to your Project Settings. Select "Info", right-click on one of the rows of "Custom iOS Properties" and select "Add Row". 
 The key of the new row should be AppLovinSdkKey and the value shouble be YOUR\_SDK\_KEY
 5. Ensure you're linking with the following libraries:
-	* SystemConfiguration.framework
-	* CoreTelephony.framework
-	* StoreKit.framework
 	* AdSupport.framework
+	* CoreTelephony.framework
+	* CoreGraphics.framework
+	* MediaPlayer.framework
+	* StoreKit.framework
+	* SystemConfiguration.framework
+	* UIKit.framework
+6. Go to your Project Settings. Select "Build Settings", search for "Other Linker Flags" and add -all_load -ObjC.
 
 ### Android
 

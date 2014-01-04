@@ -3,7 +3,7 @@
 //  sdk
 //
 //  Created by Basil on 2/27/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2013, AppLovin Corporation. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -13,6 +13,7 @@
 #import "ALAdLoadDelegate.h"
 #import "ALAdDisplayDelegate.h"
 #import "ALAdUpdateDelegate.h"
+#import "ALAdVideoPlaybackDelegate.h"
 
 /**
  * This is an endpoint name for custom AppLovin URL for tracking
@@ -51,6 +52,23 @@ extern NSString * const AlSdkCloseAd;
 extern NSString * const AlSdkLandingPage;
 
 /**
+ * This is an endpoint name for custom AppLovin URL for forcing
+ * a link to be opened by the system, probably in Mobile Safari.
+ * <pre>
+ *        applovin://com.applovin.sdk/open?url=http://blah.com
+ * </pre>
+ */
+extern NSString * const AlSdkUriOpenExternally;
+
+/**
+ * This is a URL handler for JavaScript to Objective-C communication.
+ * <pre>
+ *      applovin://com.applovin.sdk/adservice/sdkcall
+ * </pre>
+ */
+extern NSString * const AlJSFunctionPrefix;
+
+/**
  * This class represents AppLovin Ad serving service. It is able to provide ads, track clicks and conversions.
  * <p>
  * An instance of this service could be obtained from {@link AppLovinSdk} object via <code>getAdService()</code>
@@ -63,13 +81,13 @@ extern NSString * const AlSdkLandingPage;
 /**
  * Fetch next ad. A listener registered  using <code>setAdListener()</code> will
  * be notified once new ad is available to display.
- * 
+ *
  * @param adSize    Size of an ad to load. Must not be null.
  * @param placement String that identifies ad placement
  * @param callback  A callback to notify of the fact that the ad is loaded. Must not be null. A reference
  *                  to the callback will be persisted until the ad is loaded.
  */
--(void) loadNextAd: (ALAdSize *) adSize placedAt: (NSString *) placement andNotify: (id<ALAdLoadDelegate>)delegate;
+-(void) loadNextAd: (ALAdSize *) adSize andNotify: (id<ALAdLoadDelegate>)delegate;
 
 /**
  * Track a click on a given ad.
@@ -77,7 +95,7 @@ extern NSString * const AlSdkLandingPage;
  * @param ad        Advertisement to track. Must not be null. This add should be the one returned from
  *                  <code>ALAdLoadDelegate</code>.
  */
--(void) trackClickOn: (ALAd *) ad;
+-(void) trackClickOn: (ALAd *) ad DEPRECATED_ATTRIBUTE;
 
 /**
  * Add an observer of updates of advertisemetns of a given size
@@ -89,6 +107,18 @@ extern NSString * const AlSdkLandingPage;
 
 -(void)removeAdUpdateObserver: (id<ALAdUpdateObserver>) adListener ofSize: (ALAdSize *) adSize;
 
+/**
+ * Pre-load an ad of a given size in the background, if one is not already cached.
+ *
+ * @param adSize Size of the ad to cache.
+*/
+-(void)preloadAdOfSize: (ALAdSize*) adSize;
 
+/**
+ * Check whether an ad of a given size is pre-loaded and ready to be displayed.
+ *
+ * @param adSize Size of the ad to cache.
+ */
+-(BOOL)hasPreloadedAdOfSize: (ALAdSize*) adSize;
 
 @end

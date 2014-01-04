@@ -3,7 +3,7 @@
 //  sdk
 //
 //  Created by Basil on 3/23/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2013, AppLovin Corporation. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -21,7 +21,7 @@
 
 /**
  * This method is invoked when the ad is displayed in the view.
- * <p>
+ *
  * This method is invoked on the main UI thread.
  * 
  * @param ad     Ad that was just displayed. Guranteed not to be null.
@@ -32,7 +32,7 @@
 /**
  * This method is invoked when the ad is hidden from in the view. This occurs
  * when the ad is rotated or when it is explicitly closed.
- * <p>
+ * 
  * This method is invoked on the main UI thread.
  * 
  * @param ad     Ad that was just hidden. Guranteed not to be null.
@@ -42,7 +42,7 @@
 
 /**
  * This method is invoked when the ad is clicked from in the view.
- * <p>
+ * 
  * This method is invoked on the main UI thread.
  *
  * @param ad     Ad that was just clicked. Guranteed not to be null.

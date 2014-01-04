@@ -3,7 +3,7 @@
 //  sdk
 //
 //  Created by Basil on 3/1/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2013, AppLovin Corporation. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -15,12 +15,15 @@
 
 @property (strong, atomic) id<ALAdLoadDelegate> adLoadDelegate;
 @property (strong, atomic) id<ALAdDisplayDelegate> adDisplayDelegate;
+@property (strong, atomic) id<ALAdVideoPlaybackDelegate> adVideoPlaybackDelegate;
 
 @property (strong)         NSNumber * autoload;
 @property (strong, atomic) ALAdSize * adSize;
-@property (strong, atomic) NSString * adPlacement;
 
 @property (strong, atomic) UIViewController * parentController;
+
+// AppLovin SDK no longer uses placements; this is left for compatibility reasons.
+@property (strong, atomic) NSString * adPlacement __deprecated;
 
 /**
  * Start loading next advertisement. This method will return immediately. An
@@ -30,7 +33,7 @@
 
 /**
  * Render specified ad.
- * 
+ *
  * @param ad Ad to render. Must not be null.
  */
 -(void)render:(ALAd *)ad;

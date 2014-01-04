@@ -2,7 +2,7 @@
 //  AppLovinSdk.h
 //
 //  Created by Basil Shikin on 2/1/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2013, AppLovin Corporation. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -10,6 +10,7 @@
 
 #import "ALSdkSettings.h"
 #import "ALAdService.h"
+#import "ALEventService.h"
 #import "ALTargetingData.h"
 
 /**
@@ -53,6 +54,13 @@ extern NSString * const AlSdkUriHost;
 -(ALAdService *) adService;
 
 /**
+ * Get an instance of AppLovin Event Service, which is used
+ * to report events to the server, such as in-app purchases
+ * or other revenue-generating events.
+ */
+-(ALEventService *) eventService;
+
+/**
  * Get an instance of AppLovin Targeting data. This object contains
  * targeting values that could be provided to AppLovin for better
  * advertisement performance.
@@ -94,7 +102,7 @@ extern NSString * const AlSdkUriHost;
  * Get an instance of AppLovin SDK.
  * 
  * @param sdkKey         SDK key to use. May be null.
- * @param userSettings   User-provided settings. May be null.
+ * @param userSettings   User-provided settings. Must not be null, but can be an empty object.
  * 
  * @return An instance of AppLovinSDK
  */

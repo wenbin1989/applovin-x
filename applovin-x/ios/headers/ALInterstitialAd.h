@@ -1,9 +1,8 @@
 //
 //  ALInterstitialAd.h
-//  sdk
 //
-//  Created by Basil on 3/22/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Created by Matt Szaro on 8/1/13.
+//  Copyright (c) 2013, AppLovin Corporation. All rights reserved.
 //
 #import <UIKit/UIKit.h>
 #import "ALSdk.h"
@@ -13,7 +12,7 @@
 
 @property (strong, atomic) id<ALAdLoadDelegate> adLoadDelegate;
 @property (strong, atomic) id<ALAdDisplayDelegate> adDisplayDelegate;
-
+@property (strong, atomic) id<ALAdVideoPlaybackDelegate> adVideoPlaybackDelegate;
 
 /**
  * Show current interstitial over a given window. This method will show an
@@ -22,7 +21,6 @@
  * @param window An instance of window to show the interstitial over.
  */
 -(void) showOver:(UIWindow *)window;
-
 
 /**
  * Show current interstitial over a given window and render a specified ad.
@@ -38,16 +36,20 @@
 - (void)dismiss;
 
 /**
- * Init this interstitial ad with a given AppLovin SDK
+ * Init this interstitial ad with a custom AppLovin SDK.
+ *
+ * To simply display an interstitial, use [ALInterstitialAd showOver:window]
  *
  * @param sdk    Instance of AppLovin SDK to use.
  */
 -(id)initInterstitialAdWithSdk: (ALSdk *)anSdk;
 
 /**
- * Init this interstitial ad with given frame and AppLovin SDK
+ * Init this interstitial ad with a custom AppLovin SDK and custom frame.
  *
- * @param frame  Initial frame of the interstitial
+ * To simply display an interstitial, use [ALInterstitialAd showOver:window]
+ *
+ * @param frame  Frame to use with the new interstitial.
  * @param sdk    Instance of AppLovin SDK to use.
  */
 - (id)initWithFrame:(CGRect)frame sdk: (ALSdk *) anSdk;

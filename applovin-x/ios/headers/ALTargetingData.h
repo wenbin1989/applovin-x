@@ -47,41 +47,40 @@
  * Set a two-character ISO 3166-1 country code of the device.
  */
 @property(strong, nonatomic) NSString * country;
+/**
+ * API Depricated
+ */
+@property(strong, nonatomic) NSString * phoneNumber __attribute__ ((deprecated));
 
 /**
  * API Depricated
  */
-@property(strong, nonatomic) NSString * phoneNumber;
+@property(strong, nonatomic) NSString * email __attribute__ ((deprecated));
 
 /**
  * API Depricated
  */
-@property(strong, nonatomic) NSString * email;
+@property(strong, nonatomic) NSArray * emails __attribute__ ((deprecated));
 
 /**
  * API Depricated
  */
-@property(strong, nonatomic) NSArray * emails;
+@property(strong, nonatomic) NSString * hashedPhoneNumber __attribute__ ((deprecated));
 
 /**
  * API Depricated
  */
-@property(strong, nonatomic) NSString * hashedPhoneNumber;
+@property(strong, nonatomic) NSString * hashedEmail __attribute__ ((deprecated));
 
 /**
  * API Depricated
  */
-@property(strong, nonatomic) NSString * hashedEmail;
+@property(strong, nonatomic) NSArray * hashedEmails __attribute__ ((deprecated));
 
 /**
  * API Depricated
  */
-@property(strong, nonatomic) NSArray * hashedEmails;
-
-/**
- * API Depricated
- */
-@property(strong, nonatomic) NSString * firstName;
+@property(strong, nonatomic) NSString * firstName __attribute__ ((deprecated));
 
 /**
  * Set the year of birth of current user.
